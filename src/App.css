@@ -3,8 +3,6 @@ body {
   padding: 0;
   background-image: url(bck.jpg) ;
   background-color: #f9f9f9;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -ms-flex-line-pack: center;
       align-content: center;
@@ -19,7 +17,9 @@ body {
       flex-wrap: wrap;
   font-family: 'Raleway';
 }
-
+.preload * {
+  margin: 2% ;
+}
 
 .payment-title {
   width: 100%;
@@ -301,7 +301,6 @@ body {
   cursor: pointer;
 }
 
-.creditcard .front,
 .creditcard .back {
   width: 100%;
   max-width: 400px;

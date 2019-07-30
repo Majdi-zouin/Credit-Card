@@ -1,11 +1,11 @@
 import React from 'react';
-import Timer from './Timer'
-import Card from './card'
+import Card from './card';
+import './App.css';
 function App() {
   return (
     <div className="App">
+      
     <Card/> 
-    <Timer/>
 </div>
 
   );

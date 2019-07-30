@@ -1,21 +1,44 @@
 import React, { Component } from 'react';
-import './App.css';
+
 class Card extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+          number :"" ,
+          name :"" ,
+          date :"" ,
+        }
     }
-    render() { 
+    handleChange=(event)=>{
+      this.setState({
+        number: event.target.value.slice (0,4)+" "+event.target.value.slice (4,8)+" "+event.target.value.slice (8,12)+" "+event.target.value.slice (12,16)  
+      })
+    }
+    changeName=(e)=>{
+      this.setState({
+        name :e.target.value.toUpperCase()
+      })
+    }
+    changeDate=(ev)=>{
+      this.setState({
+        date: ev.target.value.slice (0,2)+"/"+ ev.target.value.slice(2,4)
+        
+      })
+    }
+    
+    render() {
+
         return (<div>
-             
-     
-     
-     
      <div className="container preload">
   <div className="creditcard">
     <div className="front">
       <div id="ccsingle" />
       <h1>Credit Card</h1>
+      <div className="inputs">
+      <input type="text" name="number" class="Card holder" onChange={this.handleChange} maxLength={16} ></input>
+      <input type="text" name="name" class="Card thru" onChange={this.changeName} maxLength={20}></input>
+      <input type="text" name="date" class="Card number" onChange={this.changeDate} maxLength={4}></input>
+      </div>
       <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 750 471" style={{enableBackground: 'new 0 0 750 471'}} xmlSpace="preserve">
         <g id="Front">
           <g id="CardBackground">
@@ -27,13 +50,13 @@ class Card extends Component {
             </g>
             {/* <path className="darkcolor greydark" d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" /> */}
           </g>
-          <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" className="st2 st3 st4">0123 4567 8910 1112</text>
-          <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" className="st2 st5 st6">Majdi Zouinkhi</text>
+          <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" className="st2 st3 st4">{this.state.number}</text>
+          <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" className="st2 st5 st6">{this.state.name}</text>
           <text transform="matrix(1 0 0 1 54.1074 389.8793)" className="st7 st5 st8">cardholder name</text>
           <text transform="matrix(1 0 0 1 479.7754 388.8793)" className="st7 st5 st8">expiration</text>
           <text transform="matrix(1 0 0 1 65.1054 241.5)" className="st7 st5 st8">card number</text>
           <g>
-            <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire" className="st2 st5 st9">01/23</text>
+            <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire" className="st2 st5 st9">{this.state.date}</text>
             <text transform="matrix(1 0 0 1 479.3848 417.0097)" className="st2 st10 st11">VALID</text>
             <text transform="matrix(1 0 0 1 479.3848 435.6762)" className="st2 st10 st11">THRU</text>
             <polygon className="st2" points="554.5,421 540.4,414.2 540.4,427.9 		" />
@@ -105,6 +128,10 @@ class Card extends Component {
           <text transform="matrix(1 0 0 1 59.5073 228.6099)" id="svgnameback" className="st12 st13">Majdi Zouinkhi</text>
         </g>
       </svg>
+    </div>
+    <div className="inputs">
+      
+     
     </div>
   </div>
 </div>
